@@ -1,15 +1,19 @@
 {
-  "name": "battaglia-navale",
+  "name": "naval-warfare",
   "version": "1.0.0",
-  "description": "",
+  "description": "Multiplayer naval warfare game",
   "main": "index.js",
   "scripts": {
+    "start": "node .",
+    "dev": "nodemon ./index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "faker": "^5.4.0"
   }
 }
