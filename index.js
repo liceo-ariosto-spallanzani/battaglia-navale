@@ -8,13 +8,11 @@ const teams = {}
 const field = []
 const ships = []
 
-const {
-  PORT = 8080,
-  W = 50,
-  H = 50,
-  S = 8000,
-  FIRE_LIMIT = 1000
-} = process.env
+const PORT = Number(process.env.PORT) || 8080
+const W = Number(process.env.W) || 50
+const H = Number(process.env.H) || 50
+const S = Number(process.env.S) || 10
+const FIRE_LIMIT = Number(process.env.FIRE_LIMIT) || 10
 
 const gameStatus = {
   active: true,
@@ -40,7 +38,6 @@ let id = 1
 for (let i = 0; i < S; i++) {
   const maxHp = faker.random.number({ min: 1, max: 6 })
   const vertical = faker.random.boolean()
-  console.log({ vertical, maxHp })
 
   const ship = {
     id,
@@ -64,6 +61,7 @@ for (let i = 0; i < S; i++) {
   }
 
   if (!found) {
+    console.log({ vertical, maxHp })
     for (let e = 0; e < ship.maxHp; e++) {
       const x = ship.vertical ? ship.x : ship.x + e
       const y = ship.vertical ? ship.y + e : ship.y
@@ -293,7 +291,11 @@ app.get("/fire", ({ query: { x, y, team: teamName, password } }, res) => {
   team.firedBullets ++
 
   let message, score
-  if (typeof x === "undefined" || typeof y === "undefined" || x >= W || x < 0 || y >= H || y < 0) {
+  
+  x = Number(x)
+  y = Number(y)
+
+  if (isNaN(x) || isNaN(y) || x >= W || x < 0 || y >= H || y < 0) {
     message = "OUT_OF_FIELD"
     score = -10
   } else { 
