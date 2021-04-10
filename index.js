@@ -78,7 +78,7 @@ const getVisibleField = () => {
     x: cell.x,
     y: cell.y,
     hit: cell.hit,
-    team: cell.team,
+    team: cell.team ? cell.team.name : null,
     ship: cell.hit ? 
       cell.ship ? { 
         id: cell.ship.id, 
