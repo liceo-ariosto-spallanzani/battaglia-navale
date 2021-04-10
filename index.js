@@ -127,7 +127,7 @@ const renderField = visibleField => {
                 cell.hit ? "hit" : null,
                 cell.hit && cell.ship ? "ship" : null,
                 cell.ship?.killer ? "killed" : null
-              ].filter(e => e).join(" ")}">${cell.ship ? cell.team.name : ""}</td>`
+              ].filter(e => e).join(" ")}">${cell.ship ? cell.team : ""}</td>`
             ).join("")}
           </tr>`)
           .join("")}
