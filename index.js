@@ -9,9 +9,9 @@ const field = []
 const ships = []
 
 const PORT = Number(process.env.PORT) || 8080
-const W = Number(process.env.W) || 50
-const H = Number(process.env.H) || 50
-const S = Number(process.env.S) || 10
+const W = Number(process.env.W) || 20
+const H = Number(process.env.H) || 20
+const S = Number(process.env.S) || 2
 const FIRE_LIMIT = Number(process.env.FIRE_LIMIT) || 10
 
 const gameStatus = {
